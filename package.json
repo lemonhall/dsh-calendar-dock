@@ -1,0 +1,52 @@
+{
+  "name": "dsh-calendar-dock",
+  "version": "0.1.0",
+  "description": "DSH 右侧栏的通用日历：月视图点选、当天事件列表、今天/本周一览；事件存在插件本地，Agent 也能读写（calendar_panel 工具）。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "icon.svg"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "dsh-bundle",
+    "deepseek-harness",
+    "calendar",
+    "agenda",
+    "sidebar"
+  ],
+  "author": "lemonhall",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lemonhall/dsh-calendar-dock.git"
+  },
+  "homepage": "https://github.com/lemonhall/dsh-calendar-dock#readme",
+  "bugs": {
+    "url": "https://github.com/lemonhall/dsh-calendar-dock/issues"
+  },
+  "meta": {
+    "title": "日历",
+    "description": "右侧栏一个 tab：月视图 + 当天事件 + 今天/本周；事件存本地，Agent 也能加/删/查。"
+  },
+  "icon": "./icon.svg",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-sidebar-right"
+      ]
+    }
+  }
+}

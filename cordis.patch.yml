@@ -1,0 +1,23 @@
+# ============================================================================
+# dsh-calendar-dock —— DSH bundle patch
+# ============================================================================
+# 纯本地，不联网：事件存在 $DSH_HOME/dsh-calendar-dock/state.json。
+#
+# 宿主半（lib/index.js）：
+#   GET/POST /dsh-calendar/state   读/写事件
+#   + calendar_panel 工具（Agent 侧：查今天/本周、加事件、删、勾完成）
+# 客户端半（lib/client.js）是右侧栏 tab：月视图 + 当天事件 + 今天/本周。
+#
+# 安装：
+#   plugin_manager install_bundle  target=link:E:\development\dsh-calendar-dock
+# ⚠️ 客户端半边改动要重启应用；新增宿主路由也要重启（实测）。
+# ============================================================================
+
+- insert:
+    - id: dsh-calendar-dock
+      name: dsh-calendar-dock
+      config:
+        # 面板里"本周/未来"看多少天
+        upcomingDays: 14
+        # 新建事件默认提醒？本插件不做系统通知，只做展示
+        weekStartsOn: 1
